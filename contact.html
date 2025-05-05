@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Datum AI - Contact Us</title>
+  <style>
+    :root {
+      --datum-light-black: #322e24;
+      --datum-navy-blue: #1e2457;
+      --datum-purple: #5856d6;
+      --datum-white: #fff;
+      --datum-light-gray: #e8e8e8;
+      --datum-light-gray1: #f7f7f7;
+      --datum-gray: #7a8599;
+      --datum-dark-bg: #0f1224;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: var(--datum-dark-bg);
+      color: var(--datum-white);
+      line-height: 1.6;
+    }
+
+    .datum-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .datum-bg-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .datum-bg-circle-1,
+    .datum-bg-circle-2 {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.08;
+    }
+
+    .datum-bg-circle-1 {
+      width: 400px;
+      height: 400px;
+      background-color: var(--datum-purple);
+      top: -100px;
+      right: -150px;
+    }
+
+    .datum-bg-circle-2 {
+      width: 300px;
+      height: 300px;
+      background-color: var(--datum-navy-blue);
+      bottom: -50px;
+      left: -100px;
+    }
+
+    .datum-section-header {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .datum-section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: inline-block;
+      color: var(--datum-white);
+      position: relative;
+    }
+
+    .datum-section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--datum-purple);
+      border-radius: 2px;
+    }
+
+    .datum-section-header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: var(--datum-light-gray);
+    }
+
+    .datum-highlight {
+      color: var(--datum-purple);
+      font-weight: 600;
+    }
+
+    .datum-contact-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .datum-contact-box,
+    .datum-form-box {
+      background-color: rgba(30, 36, 87, 0.3);
+      border-radius: 12px;
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .datum-contact-box:hover,
+    .datum-form-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border-color: rgba(88, 86, 214, 0.2);
+    }
+
+    .datum-contact-header h3,
+    .datum-form-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--datum-white);
+    }
+
+    .datum-contact-header p,
+    .datum-form-header p {
+      color: var(--datum-light-gray);
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .datum-contact-detail {
+      margin-bottom: 25px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .datum-icon-box {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(88, 86, 214, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .datum-icon-box svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--datum-purple);
+    }
+
+    .datum-contact-text {
+      flex: 1;
+    }
+
+    .datum-contact-text h4 {
+      font-size: 1.05rem;
+      margin-bottom: 5px;
+      color: var(--datum-purple);
+    }
+
+    .datum-contact-text a {
+      color: var(--datum-white);
+      text-decoration: none;
+      font-size: 1.05rem;
+    }
+
+    .datum-contact-text a:hover {
+      color: var(--datum-purple);
+    }
+
+    .datum-form-group {
+      margin-bottom: 20px;
+    }
+
+    .datum-form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: var(--datum-light-gray);
+    }
+
+    .datum-input {
+      width: 100%;
+      padding: 15px;
+      background-color: rgba(15, 18, 36, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: var(--datum-white);
+      font-size: 1rem;
+    }
+
+    .datum-input:focus {
+      outline: none;
+      border-color: var(--datum-purple);
+      box-shadow: 0 0 0 2px rgba(88, 86, 214, 0.2);
+    }
+
+    .datum-btn-submit {
+      background-color: var(--datum-purple);
+      color: var(--datum-white);
+      border: none;
+      border-radius: 8px;
+      padding: 15px 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .datum-btn-submit:hover {
+      background-color: #4645b8;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(88, 86, 214, 0.3);
+    }
+
+    .datum-response-time {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      color: var(--datum-gray);
+      font-size: 0.95rem;
+    }
+
+    .datum-response-time svg {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+      fill: var(--datum-purple);
+    }
+
+    @media (max-width: 900px) {
+      .datum-contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .datum-container {
+        padding: 60px 20px;
+      }
+
+      .datum-section-header h2 {
+        font-size: 2rem;
+      }
+
+      .datum-contact-box,
+      .datum-form-box {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .datum-contact-box,
+      .datum-form-box {
+        padding: 25px;
+      }
+
+      .datum-icon-box {
+        width: 40px;
+        height: 40px;
+      }
+
+      .datum-icon-box svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="datum-bg-elements">
+      <div class="datum-bg-circle-1"></div>
+      <div class="datum-bg-circle-2"></div>
+    </div>
+    <div class="datum-container">
+      <div class="datum-section-header">
+        <h2>Contact Us</h2>
+        <p><span class="datum-highlight">Ready to get started with Datum AI?</span> We'd love to hear about your data needs and how we can help.</p>
+      </div>
+
+      <div class="datum-contact-wrapper">
+        <div class="datum-contact-box">
+          <div class="datum-contact-header">
+            <h3>Get in Touch</h3>
+            <p>We're here to answer any questions you might have about our services.</p>
+          </div>
+          <div class="datum-contact-detail">
+            <div class="datum-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <div class="datum-contact-text">
+              <h4>Email</h4>
+              <a href="mailto:contact@datum-ai.com">contact@datum-ai.com</a>
+            </div>
+          </div>
+
+          <div class="datum-contact-detail">
+            <div class="datum-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+            </div>
+            <div class="datum-contact-text">
+              <h4>India</h4>
+              <a href="tel:+919650727903">+91-96507-27903</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="datum-form-box">
+          <div class="datum-form-header">
+            <h3>Send us a Message</h3>
+            <p>Fill out the form below and we'll get back to you shortly.</p>
+          </div>
+          <form id="datum-contact-form">
+            <div class="datum-form-group">
+              <label for="datum-name">Full Name</label>
+              <input type="text" id="datum-name" class="datum-input" required>
+            </div>
+            <div class="datum-form-group">
+              <label for="datum-email">Email</label>
+              <input type="email" id="datum-email" class="datum-input" required>
+            </div>
+            <div class="datum-form-group">
+              <label for="datum-subject">Subject</label>
+              <input type="text" id="datum-subject" class="datum-input">
+            </div>
+            <div class="datum-form-group">
+              <label for="datum-message">Message</label>
+              <textarea id="datum-message" class="datum-input" required></textarea>
+            </div>
+            <button type="submit" class="datum-btn-submit">Send Message</button>
+          </form>
+          <div class="datum-response-time">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+              <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+            </svg>
+            <span>We typically respond within 24 hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('datum-contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

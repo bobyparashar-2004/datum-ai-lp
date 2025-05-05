@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datum AI - Frequently Asked Questions</title>
+    <style>
+        /* Color variables */
+        :root {
+            --light-black: #322e24;
+            --navy-blue: #1e2457;
+            --purple: #5856d6;
+            --white: #fff;
+            --light-gray: #e8e8e8;
+            --light-gray1: #f7f7f7;
+            --gray: #7a8599;
+            --dark-bg: #0f1224;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Background elements */
+        .bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .bg-circle-1 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-color: var(--purple);
+            top: -100px;
+            right: -150px;
+            filter: blur(150px);
+            opacity: 0.08;
+        }
+
+        .bg-circle-2 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: var(--navy-blue);
+            bottom: -50px;
+            left: -100px;
+            filter: blur(120px);
+            opacity: 0.08;
+        }
+
+        /* Section header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            color: var(--white);
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--purple);
+            border-radius: 2px;
+        }
+
+        /* FAQ Accordion */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 12px;
+            background-color: rgba(30, 36, 87, 0.3);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(88, 86, 214, 0.2);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: var(--white);
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .question-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .faq-icon::before,
+        .faq-icon::after {
+            content: '';
+            position: absolute;
+            background-color: var(--purple);
+            transition: all 0.3s ease;
+        }
+
+        .faq-icon::before {
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            transform: translateY(-50%);
+        }
+
+        .faq-icon::after {
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            transform: translateX(-50%);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            color: var(--light-gray);
+            opacity: 0;
+        }
+
+        .faq-answer-inner {
+            padding-bottom: 25px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            opacity: 1;
+        }
+
+        .faq-item.active .faq-icon::after {
+            transform: translateX(-50%) rotate(90deg);
+            opacity: 0;
+        }
+
+        .faq-item.active .faq-question {
+            background-color: rgba(88, 86, 214, 0.15);
+        }
+
+        /* Highlight in questions */
+        .highlight {
+            color: var(--purple);
+            font-weight: bold;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 60px 20px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                padding: 20px;
+                font-size: 1.05rem;
+            }
+
+            .faq-answer {
+                padding: 0 20px;
+            }
+
+            .faq-answer-inner {
+                padding-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .faq-question {
+                padding: 18px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="faq-section">
+        <!-- Background elements -->
+        <div class="bg-elements">
+            <div class="bg-circle-1"></div>
+            <div class="bg-circle-2"></div>
+        </div>
+
+        <div class="container">
+            <!-- Section header -->
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <!-- FAQ Items -->
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-text">What is <span class="highlight">Data Annotation</span> or Labeling?</div>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Data annotation refers to the process of labeling raw data so that AI models can learn from it. This is critical for supervised learning tasks like image recognition, speech-to-text conversion, and more.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-text">How can I trust that my data will be <span class="highlight">safe</span>?</div>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We ensure all data is handled with the highest level of confidentiality and comply with industry standards like HIPAA for healthcare data.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-text">How do you ensure <span class="highlight">accurate labeling</span>?</div>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We implement multiple levels of validation, both manual and automated, to ensure the most accurate labeled data for you.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-text">What types of <span class="highlight">data</span> can you annotate?</div>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We specialize in annotating various data types including images, videos, text, audio, and 3D point clouds. Our teams are trained across multiple domains and can handle specialized annotation requirements.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-text">How quickly can you <span class="highlight">scale</span> annotation services?</div>
+                        <div class="faq-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Our flexible workforce model allows us to rapidly scale from small pilot projects to enterprise-level annotation needs within days, not weeks. We maintain quality standards even during rapid scaling.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Toggle active class
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    faqItems.forEach(faqItem => {
+                        faqItem.classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't already open
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Open first FAQ item by default
+            if (faqItems.length > 0) {
+                faqItems[0].classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
