@@ -16,7 +16,7 @@
             --light-gray: #e8e8e8;
             --light-gray1: #f7f7f7;
             --gray: #7a8599;
-            --dark-bg: #0f1224;
+            --dark-bg: #2f386e;
         }
         
         * {
@@ -80,6 +80,10 @@
             padding-top: 80px;
             position: relative;
             overflow: hidden;
+            /* background-color: #C0C1D1; */
+            /* border-bottom:1px solid #C0C1D1 ; */
+            /* box-shadow: 0 1px 0 #C0C1D1; */
+            box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.1);
         }
         
         /* Left side with content */
@@ -704,6 +708,14 @@
             position: relative;
             z-index: 2;
         }
+
+        .container-unique {
+            max-width: 1200px;
+            margin: 0 auto;
+            /* padding: 0 20px; */
+            position: relative;
+            z-index: 2;
+        }
         
         /* Background elements */
         .bg-pattern {
@@ -789,7 +801,7 @@
         
         /* Stats and achievements */
         .stats-container {
-            display: flex;
+            display: flex !important;
             justify-content: center;
             flex-wrap: wrap;
             gap: 20px;
@@ -2306,12 +2318,12 @@
         }
 
         /* Stats */
-        .stats-container {
+        /* .stats-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             margin-top: 60px;
-        }
+        } */
 
         .stat-box {
             background-color: var(--white);
@@ -2962,7 +2974,8 @@
       max-width: 800px;
       margin: 0 auto;
       font-size: 1.1rem;
-      color: var(--datum-light-gray);
+      /* color: var(--datum-light-gray); */
+      color:#e8e8e8;
     }
 
     .datum-highlight {
@@ -3153,7 +3166,231 @@ border: 2px solid rgb(218, 218, 218) !important;
         height: 20px;
       }
     }
-    </style>
+
+        /* Footer styles - REMOVED TOP SPACING */
+        .footer {
+            background-color: white;
+            position: relative;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.03);
+        }
+        
+        /* Gradient border at top */
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #d946ef);
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px 12px; /* Reduced top padding */
+        }
+        
+        /* Quick links section */
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 12px;
+            margin-bottom: 12px; /* Reduced bottom margin */
+        }
+        
+        .quick-link {
+            text-decoration: none;
+            font-size: 13px;
+            padding: 5px 14px;
+            border-radius: 50px;
+            color: #4f46e5;
+            background-color: #f5f7ff;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .quick-link:hover {
+            background-color: #4f46e5;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+        }
+        
+        .quick-link i {
+            margin-right: 6px;
+            font-size: 12px;
+        }
+        
+        /* Footer bottom section */
+
+        .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  position: relative;
+}
+
+.footer-bottom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230, 232, 240, 0.8), transparent);
+}
+
+.footer-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  height: 32px;
+  object-fit: contain;
+}
+
+.footer-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            position: relative;
+        }
+        
+        .footer-bottom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 96%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(230, 232, 240, 0.8), transparent);
+        }
+        
+        /* Copyright styling */
+        .copyright {
+            color: #888;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .copyright span {
+            margin-left: 5px;
+        }
+        
+        /* Social links */
+        .social-terms {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            color: #6366f1;
+            background-color: #f5f7ff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #6366f1;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(99, 102, 241, 0.25);
+        }
+        
+        /* Terms links */
+        .terms-links {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .terms-link {
+            color: #888;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .terms-link:hover {
+            color: #6366f1;
+        }
+        
+        .terms-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #6366f1;
+            transition: width 0.3s ease;
+        }
+        
+        .terms-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .footer-bottom {
+
+    
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .social-terms {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .quick-link {
+                font-size: 12px;
+                padding: 4px 12px;
+            }
+            
+            .footer-container {
+                padding: 12px 15px 10px; /* Even more reduced padding on mobile */
+            }
+        }
+</style>
 </head>
 <body>
     <!-- Navbar -->
@@ -3168,13 +3405,13 @@ border: 2px solid rgb(218, 218, 218) !important;
         <div class="bg-shapes">
             <div class="bg-shape shape-1"></div>
             <div class="bg-shape shape-2"></div>
-            <div class="bg-shape shape-3"></div>
+            <!-- <div class="bg-shape shape-3"></div> -->
         </div>
         
         <!-- Data annotation graphics -->
         <div class="data-annotation-graphics">
-            <div class="graphic-element bounding-box"></div>
-            <div class="graphic-element segmentation"></div>
+            <!-- <div class="graphic-element bounding-box"></div>
+            <div class="graphic-element segmentation"></div> -->
             <div class="data-points">
                 <div class="data-point point-1"></div>
                 <div class="data-point point-2"></div>
@@ -3244,8 +3481,8 @@ border: 2px solid rgb(218, 218, 218) !important;
         <div class="form-container">
             <div class="form-wrapper">
                 <div class="form-decorations">
-                    <div class="form-decoration form-decoration-1"></div>
-                    <div class="form-decoration form-decoration-2"></div>
+                    <!-- <div class="form-decoration form-decoration-1"></div>
+                    <div class="form-decoration form-decoration-2"></div> -->
                 </div>
                 
                 <h2 class="form-title">Get Started Today</h2>
@@ -3296,12 +3533,12 @@ border: 2px solid rgb(218, 218, 218) !important;
     <section class="why-choose-section">
         <!-- Background elements -->
         <div class="bg-pattern"></div>
-        <div class="bg-shapes">
+        <!-- <div class="bg-shapes">
             <div class="bg-shape bg-shape-1"></div>
             <div class="bg-shape bg-shape-2"></div>
-        </div>
+        </div> -->
         
-        <div class="container">
+        <div class="container-unique">
             <!-- Section header -->
             <div class="section-header animate-fade-in-up">
                 <h2 class="section-title">Why Choose Datum AI?</h2>
@@ -3365,9 +3602,9 @@ border: 2px solid rgb(218, 218, 218) !important;
         </div>
     </section>
 
-    <section class="datum-services-section" style=" background: var(--dark-bg);">
+    <section class="" style=" background: var(--dark-bg);">
         <!-- Background elements -->
-        <div class="datum-bg-elements">
+        <!-- <div class="datum-bg-elements">
             <div class="datum-waves"></div>
             <div class="datum-grid-lines"></div>
             <div class="datum-floating-particles">
@@ -3381,11 +3618,11 @@ border: 2px solid rgb(218, 218, 218) !important;
                 <div class="datum-particle"></div>
             </div>
         </div>
-        
-        <div class="datum-container">
+         -->
+        <div class="container">
             <!-- Section header -->
             <div class="datum-section-header">
-                <div class="datum-section-badge">Our Expertise</div>
+                <!-- <div class="datum-section-badge">Our Expertise</div> -->
                 <h2 class="datum-section-title">Our Services</h2>
                 <p class="datum-section-description">We provide specialized data annotation and AI enhancement services to help your machine learning models reach their full potential with high-quality, accurately labeled data.</p>
             </div>
@@ -3847,7 +4084,83 @@ border: 2px solid rgb(218, 218, 218) !important;
     </div>
       </section>
 
-      <!-- contact -->
+      <!-- footer -->
+      <!-- Streamlined footer with no extra spacing -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Navigation links -->
+            <!-- <div class="quick-links">
+                <a href="#" class="quick-link">
+                    <i class="fas fa-building"></i> Industries
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-cogs"></i> Services
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-tags"></i> Data Annotation
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-database"></i> Data Sourcing
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-robot"></i> Generative AI/RLHF
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-brain"></i> AI Consulting
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-rss"></i> Blogs
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-file-alt"></i> Resources
+                </a>
+            </div> -->
+            
+            <!-- Footer bottom section -->
+            <div class="footer-bottom">
+                <div class="footer-left">
+                  <!-- <img src="your-logo.png" alt="Logo" class="footer-logo" /> -->
+                  <img src="assets/67528c2628e06a7d4c10876c_Datum New Logo (1).svg" alt="Datum AI Logo" class="logo">
+                </div>
+              
+                <div class="footer-center">
+                  <div class="copyright">
+                    <i class="far fa-copyright"></i>
+                    <span>2025 All Rights Reserved</span>
+                  </div>
+                </div>
+              
+                <div class="footer-right social-terms">
+                  <div class="social-links">
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </div>
+              
+                  <div class="terms-links">
+                    <a href="#" class="terms-link">Terms of Service</a>
+                    <a href="#" class="terms-link">Privacy Policy</a>
+                  </div>
+                </div>
+              </div>
+              
+        </div>
+    </footer>
       
     
 
@@ -4026,14 +4339,23 @@ border: 2px solid rgb(218, 218, 218) !important;
         });
       </script>
 
-      <!-- contact -->
+     <!-- footer -->
 
-      <script>
-        document.getElementById('datum-contact-form').addEventListener('submit', function(e) {
-          e.preventDefault();
-          alert('Thank you for your message! We will get back to you soon.');
-          this.reset();
+     <script>
+        // Simple hover effects for links
+        document.addEventListener('DOMContentLoaded', function() {
+            const quickLinks = document.querySelectorAll('.quick-link');
+            
+            quickLinks.forEach(link => {
+                link.addEventListener('mouseover', function() {
+                    this.style.boxShadow = '0 2px 8px rgba(71, 118, 230, 0.15)';
+                });
+                
+                link.addEventListener('mouseout', function() {
+                    this.style.boxShadow = 'none';
+                });
+            });
         });
-      </script>
+    </script>
 </body>
 </html>
